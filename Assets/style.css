@@ -30,6 +30,7 @@ textarea {
 .time-block {
   text-align: center;
   border-radius: 15px;
+  margin-bottom: 50px;
 }
 
 .row {
@@ -63,6 +64,10 @@ textarea {
 
 .future {
   background-color: #77dd77;
+}
+
+.editInProgress {
+  background-color: yellow;
 }
 
 .saveBtn {
