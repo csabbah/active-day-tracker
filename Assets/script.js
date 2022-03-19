@@ -39,4 +39,4 @@ $(document).ready(function () {
 setInterval(() => {
   location.reload();
   // ADD CODE - Add a function here to save everything locally just in case you forgot to save
-}, 1000 * 10); // 1000 * 60 = 60 seconds
+}, 1000 * 60); // 1000 * 60 = 60 seconds
