@@ -121,7 +121,7 @@ textarea {
   .row {
     margin-top: 100px;
   }
-  .row-1 {
+  .row:nth-child(1) {
     margin-top: 0;
   }
 }
