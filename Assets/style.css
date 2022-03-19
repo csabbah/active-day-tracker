@@ -23,6 +23,8 @@ textarea {
 
 .description {
   white-space: pre-wrap;
+  padding-top: 20px;
+  margin-bottom: 0;
 }
 
 .time-block {
@@ -105,7 +107,7 @@ textarea {
     border-radius: 0;
   }
 
-  .description p,
+  .description,
   .hour {
     text-align: center;
   }

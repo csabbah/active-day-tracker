@@ -1,5 +1,7 @@
 // Carlos Sabbah - March 19th 2022 - Active Day Tracker
-// Create a variable to hold the current time (just the hour number)
+
+$('#currentDay').text(moment().format('MMMM Do YYYY, h:mm a'));
+// Create a variable to hold the current time
 var now = moment().format('ha'); // 1pm
 
 // Iterate through all hours....
@@ -28,6 +30,8 @@ var updateUi = () => {
     }
   });
 };
+
+$('.description').click(function () {});
 
 // On application load, execute the condition upfront and update styling accordingly
 $(document).ready(function () {
