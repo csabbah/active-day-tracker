@@ -1,49 +1,26 @@
 // Carlos Sabbah - March 19th 2022 - Active Day Tracker
 
-// -------- ------- ---- --- - Declare the global object for local storage
-var descArr = [
-  { id: 0, text: '' },
-  { id: 1, text: '' },
-  { id: 2, text: '' },
-  { id: 3, text: '' },
-  { id: 4, text: '' },
-  { id: 5, text: '' },
-  { id: 6, text: '' },
-  { id: 7, text: '' },
-  { id: 8, text: '' },
-];
-
-// -------- ------- ---- --- - Return local descriptions
-function returnLocalScore() {
-  // Check for the local storage score...
-  var localDesc = localStorage.getItem('scores');
-  // If it's empty return nothing
-  if (localDesc === null) {
-  } else {
-    // Else parse the data
-    parsedDesc = JSON.parse(localDesc);
-
-    // Then add those descriptions from the local storage to the array
-    parsedDesc.forEach((item) => {
-      if (item.initials == undefined || item.highscore == undefined) {
-      } else {
-        tempArr = {
-          id: item.Id,
-          text: item.text,
-        };
-        descArr.push(tempArr);
-      }
-    });
-  }
-}
-
-function saveDesc(id, text) {
-  tempArr = {
-    id: id,
-    text: text,
-  };
-  descArr.push(tempArr);
-  localStorage.setItem('desc', JSON.stringify(descArr));
+// -------- ------- ---- --- - Declare a global object with all stored data or create an empty object to use this session
+var localDesc = localStorage.getItem('desc');
+// If the local storage doesn't exist....
+if (localDesc == null) {
+  // For this sessions declare an empty object
+  var descArr = [
+    { id: 0, text: '' },
+    { id: 1, text: '' },
+    { id: 2, text: '' },
+    { id: 3, text: '' },
+    { id: 4, text: '' },
+    { id: 5, text: '' },
+    { id: 6, text: '' },
+    { id: 7, text: '' },
+    { id: 8, text: '' },
+  ];
+  // Otherwise if local storage does exist...
+} else {
+  // Parse the local data and update the above empty object with the data from local
+  localDesc = JSON.parse(localDesc);
+  descArr = localDesc;
 }
 
 // -------- ------- ---- --- - For the currentDay element, insert the current Date and time
@@ -114,25 +91,48 @@ $('.row').on('blur', 'textarea', function () {
     .text(currentEditedText);
   // Then replace the textarea element with the new p element we generated above
   $(this).replaceWith(taskP);
+});
 
-  // Iterate through the description object...
+// -------- ------- ---- --- - Upload the description to local storage based on the specific time block the user save
+$('.saveBtn').click(function () {
+  var id = $(this).parent().attr('data-id');
+  var editedText = $(this).parent().find('.description').text();
+
+  // Update local storage with current data
   descArr.forEach((item) => {
-    // If the id in the object matches with the current Id of the element we clicked away from...
-    if (item.id == currentId) {
-      // Update/Add the currentEditedText for that index (id)
-      item.text = currentEditedText;
+    // Iterate through each item in the object...
+    // If the id in the object matches with the current id....
+    if (id == item.id) {
+      // Update/add the text associated with the given id
+      item.text = editedText;
+      // Then upload to the local storage
+      localStorage.setItem('desc', JSON.stringify(descArr));
     }
   });
-  console.log(descArr);
 });
 
-// -------- ------- ---- --- - On application load, execute condition upfront and update styling to match time
+// -------- ------- ---- --- - On application load....
 $(document).ready(function () {
+  // Execute condition upfront and update styling to match time
   updateUi();
+
+  // Update descriptions with local data
+  $('.description').each(function () {
+    // Iterate over all description elements and extract the ids via data attribute of the parent element
+    var id = $(this).parent().attr('data-id');
+
+    descArr.forEach((item) => {
+      // Iterate through each item in the object...
+      // If the id in the object matches with the current id of the description element....
+      if (id == item.id) {
+        // Update/add the text associated with the given id
+        $(this).text(item.text);
+      }
+    });
+  });
 });
 
-// -------- ------- ---- --- - Refresh the window every 30 seconds and re-execute styling condition
+// -------- ------- ---- --- - Refresh the window every 60 seconds to update styling and other various functions
 setInterval(() => {
   location.reload();
-  // ***** ADD CODE ***** - Add a function here to save everything locally just in case you forgot to save
 }, 1000 * 60); // 1000 * 60 = 60 seconds
