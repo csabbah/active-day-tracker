@@ -18,3 +18,5 @@ https://csabbah.github.io/active-day-tracker/
 ## Contribution
 
 Made with ❤️ by Carlos Sabbah
+
+<img width="1466" alt="Screen Shot 2022-03-20 at 11 15 13 AM" src="https://user-images.githubusercontent.com/91699101/159190485-4d4b8cb7-b5d8-4fb3-8772-1ee0d8bdfe9f.png">
