@@ -78,9 +78,6 @@ $('.row').on('click', 'p', function () {
 
 // Part 2 -------- Upon clicking away (during editing), recreate the previous element with the recent class
 $('.row').on('blur', 'textarea', function () {
-  // Extract the current id data attribute from the description element's parent container (which is 'row')
-  var currentId = $(this).parent().attr('data-id');
-
   // Extract the text the user inputted during editing
   var currentEditedText = $(this).val().trim();
   // Since we added the styling in the above block, re-acquire this class so it returns to normal state
@@ -133,6 +130,13 @@ $(document).ready(function () {
 });
 
 // -------- ------- ---- --- - Refresh the window every 60 seconds to update styling and other various functions
+var timer = 60;
 setInterval(() => {
-  location.reload();
-}, 1000 * 60); // 1000 * 60 = 60 seconds
+  timer--;
+  $('#counter').text(`Next refresh: ${i}`);
+
+  if (timer == 0) {
+    timer = 60;
+    location.reload();
+  }
+}, 1000);
