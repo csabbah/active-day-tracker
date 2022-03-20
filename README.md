@@ -1,1 +1,20 @@
-# Work Day Scheduler
+# Work Day Scheduler - March 20th 2022 - Carlos Sabbah
+
+## Purpose / Functionality
+
+UofT challenge #5: Third-Party APIs Challenge: Work Day Scheduler. This application will allow the user to add tasks or reminders for each time block upon button click. If the user wants to save a specific piece of data, they can hit the save button on that same line and it will save to local storage and to an object. The styling of each time block will change depending on the local time of the user's machine. And finally, the current date and time will display at the top of the application with a timer that indicates the next refresh state.
+
+## Built With
+
+- HTML
+- CSS
+- JavaScript
+- jQuery (Heavy focus on this)
+
+## Website
+
+https://csabbah.github.io/active-day-tracker/
+
+## Contribution
+
+Made with ❤️ by Carlos Sabbah
