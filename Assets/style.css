@@ -27,7 +27,7 @@ textarea {
   margin-bottom: 0;
 }
 
-.time-block {
+.time-block-container {
   text-align: center;
   border-radius: 15px;
   margin-bottom: 50px;
@@ -71,6 +71,10 @@ textarea {
 }
 
 .saveBtn {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
   border-left: 1px solid #d3d3d3;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -117,6 +121,10 @@ textarea {
     text-align: center;
   }
 
+  .description {
+    height: 70px;
+  }
+
   .jumbotron h1 {
     font-size: 33px;
   }
@@ -126,7 +134,7 @@ textarea {
   }
 
   .row {
-    margin-top: 100px;
+    margin-top: 120px;
   }
   .row:nth-child(1) {
     margin-top: 0;
