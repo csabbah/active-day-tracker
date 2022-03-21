@@ -4,7 +4,7 @@
 var localDesc = localStorage.getItem('desc');
 // If the local storage doesn't exist....
 if (localDesc == null) {
-  // For this sessions declare an empty object
+  // For this session declare an empty object
   var descArr = [
     { id: 0, text: '' },
     { id: 1, text: '' },
