@@ -40,6 +40,10 @@ textarea {
   font-size: 16px;
 }
 
+.row p {
+  cursor: pointer;
+}
+
 .hour {
   background-color: #ffffff;
   color: #000000;
@@ -73,7 +77,6 @@ textarea {
 .saveBtn {
   display: flex;
   justify-content: center;
-
   align-items: center;
   border-left: 1px solid #d3d3d3;
   border-top-right-radius: 15px;
@@ -83,12 +86,21 @@ textarea {
   color: white;
 }
 
+.saveBtn:hover {
+  background-color: #04a1c4;
+}
+
+.saveBtn:active {
+  background-color: #00718b;
+}
+
 .saveBtn i {
   width: 20px;
   height: 20px;
   font-size: 20px;
   color: white;
 }
+
 .saveBtn:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
