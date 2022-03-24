@@ -133,7 +133,7 @@ $(document).ready(function () {
 var timer = 60;
 setInterval(() => {
   timer--;
-  $('#counter').text(`Next refresh: ${timer}`);
+  $('#counter').text(`Next Refresh: ${timer}`);
 
   if (timer == 0) {
     timer = 60;
