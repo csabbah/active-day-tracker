@@ -1,5 +1,9 @@
 // Carlos Sabbah - March 19th 2022 - Active Day Tracker
 
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
 // -------- ------- ---- --- - Declare a global object with all stored data or create an empty object to use this session
 var localDesc = localStorage.getItem('desc');
 // If the local storage doesn't exist....
